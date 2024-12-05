@@ -586,7 +586,7 @@ section,
   font-size: 26px;
 }
 
-.hero p span {
+.hero p span.typed {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
 }

@@ -96,12 +96,25 @@
   if (selectTyped) {
     let typed_strings = selectTyped.getAttribute('data-typed-items');
     typed_strings = typed_strings.split(',');
+
+    // Initialize Typed.js with a custom logic to handle the prefix
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50,
-      backDelay: 2000
+      backDelay: 2000,
+      preStringTyped: (arrayPos, self) => {
+        const currentString = self.strings[arrayPos].trim();
+        const prefixElement = document.getElementById('prefix');
+
+        // Update the prefix based on the current string
+        if (currentString === 'ESL Teacher') {
+          prefixElement.textContent = "I'm an";
+        } else {
+          prefixElement.textContent = "I'm a";
+        }
+      }
     });
   }
 
